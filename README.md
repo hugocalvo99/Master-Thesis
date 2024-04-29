@@ -1,1 +1,1 @@
-This is a trial
+General repo for my Master Thesis. Goal is to upload local files and have them imported to overleaf periodically to share with advisors.
