@@ -175,6 +175,11 @@ pdfkeywords={keyword1, keyword2, keyword3}
 % Add math options and tools
 \usepackage{amsmath}
 \usepackage{mathtools}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\,\delimsize\vert\,\mathopen{}#2}
+
+
 
 % Extended symbol collection
 \usepackage{amssymb}    

@@ -11,8 +11,31 @@ In this chapter we will describe the spectrum of D-brane systems in the context 
 
 \section{Dp-Dp spectrum}
 
-Consider a single Dp-brane, and the string that attaches its ends to it.
+%Discuss the spectrum of a single Dp-brane. Start with D9 SYM and dimensionally reduce.
+
+Consider a single D9-brane. This equates to considering Neumann boundary conditions in all directions of a string. The NS vacuum is a scalar $\ket{0}$, while the R sector is a spinor $\ket{a}$, given by $SO(2)$ eigenvalues $s_0, s_1, s_2, s_3, s_4$. The massless spectrum can be found from the mass formula $\alpha ' M^2 = N + 1/2$. This leads to the modes $b_{-1/2}^\mu \ket{0}$ and $\ket{a}$.
+
+The representation theory of the massless spectrum turns out to be straight forward. There is a vector and a fermion in D = 10, composed by $b_{-1/2}^\mu \ket{0}$ and $\ket{a}$ respectively.
+
+To obtain the spectrum of an arbitrary Dp-brane we can perform dimensional reduction over the D9 spectrum we already constructed. By dimensional reduction we mean splitting the D9 symmetry group $SO(1,9)$ into the transverse and world-volume symmetry groups of the lower dimensional Dp-brane, namely, $SO(1,p) \times SO(9-p)$. 
+
+Starting with a vector in the $\mathbf{10}$ of $SO(1,9)$, it decomposes into a $(\mathbf{p},\mathbf{1}) \oplus (\mathbf{1}, \mathbf{9-p})$ of $SO(1,p)\times SO(9-p)$. The original R vacua was a Majorana-Weyl spinor of $SO(1,9)$, and depending on $p$ it will decompose into the corresponding irreducible spinors of $SO(1,p)\times SO(9-p)$. The dimensional reduction of spinors is discussed in detail in \ref{ap:spinors}.
+
+This is already the full spectrum of a single Dp-brane. Extending it to a stack of $Q_p$ Dp-branes adds a Chan-Paton factor to both string ends, which labels the adjoint representation of $U(Q_p)$. 
+
+We can count on-shell degrees of freedom to make sure the spectrum is supersymmetric. For a explicit example, we can consider a single D5-brane. By on-shell we refer to adopting light-cone gauge, meaning that $SO(1,5) \rightarrow SO(4)$, effectively identifying 2 degrees of freedom for the vector, and specifying a $s_0$ eigenvalue for the spinor.
+
+\begin{align*}
+    (\mathbf{6},\mathbf{1}) \rightarrow (\mathbf{4},\mathbf{1}\\
+    (\mathbf{1},\mathbf{4}) \rightarrow (\mathbf{1}, \mathbf{4})\\
+    (\mathbf{4}_s,\mathbf{2}_s) \rightarrow (\mathbf{2}_s,\mathbf{2}_s) \\
+    (\mathbf{4}_c,\mathbf{2}_c) \rightarrow (\mathbf{2}_c,\mathbf{2}_c) \\
+\end{align*}
+
+Now if we count degrees of freedom in the right side, we find that there are 8 matching bosonic and fermionic degrees of freedom, meaning that there can be 8 on-shell supercharges in the theory. A general discussion can be made for any $p$ to find the same 8 possible on-shell supercharges. 
 
 \section{Dp-D(p+4) spectrum}
+
+%Start by finding the vacuum. See how it is like a full R vacuum split as a tensor product
 
 \section{D1/D5 spectrum}
