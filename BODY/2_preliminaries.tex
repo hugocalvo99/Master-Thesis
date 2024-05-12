@@ -7,19 +7,96 @@
 \label{chap:preliminaries}
 \pagestyle{fancy}
 
-In this chapter we will present some basic concepts necessary to later build 
+In this chapter we will present some basic concepts to give a foundation to this thesis. Only the necessary steps will be presented in order to give context for future chapters. For a more extensive review on the topic of Superstring Theory, the reader can refer to \cite{Polchinski_1998,Johnson_2023}.
 
 \section{Type IIB string theory}
 
 %Action, spectrum, GSO projection. Make clear this is not orbifolded
 
+String Theory is, in its most simple realization, one of the most straight forward generalizations of the quantum theory behind Particle Physics. Instead of the fundamental object being a particle, which classically traces a 1D world-line when it propagates through space-time, a string describes a 2D world-sheet. This world-sheet is parametrized by coordinates $\sigma^\alpha = (\sigma,\tau)$, through the embeddings $X^\mu(\sigma,\tau)$.
+
+Superstring theory, as the name implies, also has fermionic degrees of freedom, that give rise to world-sheet SUSY $\psi^\mu$ and $\tilde{\psi}^\mu$. This world-sheet SUSY, as it turns out, gives rise to space-time SUSY when the String Theory is treated with carefully. This procedure is known as the GSO projection, and will be an integral part in future chapters.
+
+Consider the following action,
+
+\begin{equation*}
+    \label{eq:worldsheet_action}
+    S = \frac{1}{4\pi} \int_\mathcal{M} d^2 z \left\{ \frac{1}{\alpha '} \partial X^\mu \overline{\partial} X_\mu + \psi^\mu \overline{\partial} \psi_\mu + \tilde{\psi}^\mu \partial \tilde{\psi}_\mu\right\}
+\end{equation*}
+
+with $\mathcal{M}$ being a complex cylinder, $z\in \mathbb{C}$, $z + 2\pi \sim z$.
+
+We can start by solving the classical equations of motion, which can be read as $\partial \overline{\partial} X^\mu = \overline{\partial} \psi^\mu = \partial \tilde{\psi}^\mu = 0$. These mean the fields can be written in terms of holomorphic and anti-holomorphic functions as follows,
+
+\begin{align*}
+    X^\mu &= X_L^\mu (z) + X_R^\mu (\overline{z}) \\
+    \psi^\mu &= \psi^\mu (z) \\
+    \tilde{\psi}^\mu &= \tilde{\psi}^\mu (\overline{z})
+\end{align*}
+
+Now, to find a mode expansion we have to impose boundary conditions for these fields. In order to find the closed string spectrum, we impose the following periodicity conditions. For the bosonic field these are $X^\mu (z+2\pi) = X^\mu (z)$, while the fermions can close up to a $\pm$ sign. This allows for two sectors in the spectrum, called Rammond (R) and Naveu-Schwarz (NS), given by the periodicity conditions,
+
+\begin{align*}
+    \mathrm{R} : \psi^\mu (z + 2\pi) = +\psi^\mu (z) \\
+    \mathrm{NS} : \psi^\mu (z + 2\pi) = -\psi^\mu (z) \\
+\end{align*}
+
+and the same for $\tilde{\psi}^\mu$. Al fields can then be expressed in terms of Fourier modes. The bosonic modes will be called $a^\mu_n$, $\tilde{a}^\mu_n$, $n\in \mathbb{Z}$, while the fermionic modes are $b^\mu_r$, $\tilde{b}^\mu_r$, with $r$ being in $\mathbb{Z}$ in the NS sector, or in $\mathbb{Z}+1/2$ in the R sector.
+
+Focusing on one half of the spectrum, say the left moving spectrum, we identify the NS vacuum to be a space-time scalar $\ket{0}_R$, while the R vacuum is degenerate under the action of $b^\mu_0$. The zero-modes of the R sector generate the $D=10$ Clifford algebra, so the R vacuum is characterized by a spinor, $\ket{a}_R$. This spinor can be characterized by $SO(2)$ eigenvalues $\ket{s_0,s_1,s_2,s_3,s_4}$, $s_i = \pm 1/2$, forming a 32 dimensional complex space. This is a Dirac spinor $\mathbf{32}$ of $SO(1,9)$.
+
+The closed string spectrum will consist of both the right and left moving spectrum along with the level matching condition. Focusing again on the right part of the spectrum, we can find the following mass formula,
+
+%Cannonical quantisation, algebra, physical states, mass
+
+\begin{equation}
+    \label{eq:mass_state}
+    M^2=\frac{1}{\alpha^{\prime}}\left(\sum_{n, r} a{-n} \cdot a_n+r b_{-r} \cdot b_r-a\right)
+\end{equation}
+
+whith $a = -1/2$ in the NS sector and $a = 0$ in the R sector. We can extract useful information from this. First of all, there is a tachyon $\ket{0}_R$ with mass $M^2 = -1/2\alpha '$. We will assign fermion number $(-1)^F = -1$ to this state. The only massless states are then $\ket{a}_R$ and $b^\mu_{-1/2}\ket{0}_R$. The vector $b^\mu_{-1/2}\ket{0}_R$ has $(-1)^F = 1$, while for the fermion $\mathbf{32} = \mathbf{16}_s \oplus \mathbf{16}_c$\footnote{This is the typical decomposition into Weyl spinors, for details refer to Appendix \ref{ap:spinors}} we have a choice. We can choose the value of $(-1)^F$ for one chirality, and the other will automatically adopt the oposite one.
+
+All this discussion of fermion numbers is related to the GSO projection. In order to make the theory well defined, we require the spectrum to only contain states that have an even fermion number. Thus, the tachyon is projected, and at the massless level, only one chirality of the fermion remains. The same reasoning follows for the left moving spectrum, leading to the two different type II Superstring Theories. Type IIA has both chiralities in the spectrum, while IIB has only one (conventionally the $\mathbf{16}_s$). To write out the spectrum, it is common to go to lightcone gauge, in which the massless excitations will form representations of the little group of $SO(1,9)$, namely, $SO(8)$. The massless spectrum of type IIB string theory can then be written as,
+
+\begin{equation*}
+    (\mathbf{8}_v, \mathbf{8}_v) \oplus (\mathbf{8}_v, \mathbf{8}_s) \oplus (\mathbf{8}_s, \mathbf{8}_v) \oplus (\mathbf{8}_s, \mathbf{8}_s)
+\end{equation*}
+
+The takeaway from this short discussion should be the halving of the spectrum via GSO projection, and the description of the spectrum of type IIB. In future chapters, GSO projection will be used to calculate the spectrum of the D1/D5 brane system.
+
+
+
 \section{Orbifolds}
 
 %Brief general description, orbifolds with singular points. Freely acting orbifolds.
- 
-\subsection{D-branes}
+
+Intuitively, orbifolds can be understood as a generalization or manifolds where we allow for the existence of singular points. Mathematically, they are defined by a differentiable manifold $\mathcal{M}$, and a symmetry group $G$ inside $\mathcal{M}$. Then the quotient $\mathcal{M}/G$ is an orbifold.
+
+As an example, we can consider $\mathbb{R}^2$, whith reflections $(x,y) \rightarrow (-x,-y)$ identified. This is a realization of the orbifold $\mathbb{R}^2/\mathbb{Z}_2$. This particular orbifold has a conical singularity at the fixed point at the origin, so the orbifold is actually not a manifold.
+
+In what will follow we will consider freely acting orbifolds, which are orbifolds by construction as a quotient between a manifold and a symmetry group, but don't have any fixed points. The resulting structure then turns out to be a manifold again. In relation to string theory, freely acting orbifolds are interesting because %check why
+
+\section{D-branes}
 
 %Boundary conditions, talk about fermions too. Argue that only sym orbifolds admit single branes.
+
+When we introduced String Theory, we assumed periodic boundary conditions to represent a closed string propagating through spacetime. But this choice could be extended to non-periodic boundary conditions. Strings can indeed end on hypersurfaces that are called D-branes.
+
+Consider the bosonic part coming from the world-sheet action given by equation \ref{eq:worldsheet_action}. Instead of imposing periodic boundary conditions, we can instead consider the string endings fixed on a surface of dimeension $p$, so that $\partial_\sigma X^a(\sigma,\tau)|_{\sigma = 0,\pi} = 0$, $\partial_\tau X^i(\sigma,\tau)|_{\sigma = 0,\pi} = 0$, with $a = 0,...p$, $i=p+1,...,D$.
+
+If we express the coordinates in terms of the modes $a^\mu_n$, the Neumann and Dirichlet conditions imply a relation between left and right moving modes as $a^a_n = \overline{a}^a_n$ and $a^i_n = -\overline{a}^i_n$. The spectrum then, can be constructed from the set of, for instance, left moving oscillators, as the right moving degrees of freedom are related by the boundary conditions.
+
+The same procedure can be performed to the fermionic oscillations, and we find the same conclusion. The take away from the splitting into Neumann+Dirichlet boundary conditions, is that the full Lorentz group is now not a symmetry of the spectrum, because rotations between $a$ and $i$ indices will mix different boundary conditions. The splitting can be schematically represented as $SO(1,9) \rightarrow SO(1,p) \times SO(9-p)$. In terms of the representation theory of the spectrum, in the closed string we found that the stated arranged themselves into representations of the Lorentz group $SO(1,9)$, but now in turn, they will be arranged into representations of the subgroups mentioned.
+
+To work a quick example, we can think of a D9 brane covering all directions of the background space. In this case, the open string spectrum is just the left moving part of what we presented as the closed string spectrum. The massless spectrum is then given by the states $b_{-1/2}^\mu \ket{0}$ and the Rammond vacuum $\ket{a}$, which in lightcone gauge they fall into the $\mathbf{8}_v$ and $\mathbf{8}_s$ of $SO(1,9)$.
+
+All the rest of the single Dp-brane spectrums can be computed from the D9 spectrum by dimensional reduction. The procedure is best understood from the vector. The index $\mu = 0,...,9$ splits into two indices $a = 0,...,p$ and $i = p+1,...,10$, so that a vector $b_{-1/2}^\mu \ket{0} \rightarrow b_{-1/2}^a \otimes b_{-1/2}^i \ket{0}$. The procedure for spinor representations is outlined in detail in Appendix \ref{ap:spinors}. In summary, if we wanted to calculate the D5 spectrum with the data from the D9 spectrum, the dimensional reduction would go as follows,
+
+\begin{align*}
+    SO(1,9) &\rightarrow SO(1,5) \times SO(1,4) \\
+    \mathbf{10} &\rightarrow (\mathbf{6},\mathbf{1}) \oplus (\mathbf{1}, \mathbf{4}) \\
+    \mathbf{16}_s &\rightarrow (\mathbf{4}_s, \mathbf{2}_s) \oplus (\mathbf{4}_c, \mathbf{2}_c)
+\end{align*}
 
 \section{Supersymmetry}
 
