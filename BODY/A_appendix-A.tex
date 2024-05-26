@@ -1,11 +1,79 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%		~~~~ Appendix example ~~~~
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \chapter{Spinors in various dimensions}
 \label{ap:spinors}
+
+In this appendix we will juntify some claims about spinors in general even dimensions that are used throughout the thesis.
+
+It is well known that the Dirac representation is not irreducible in even dimensions, in which a chirality projection exists into the two different Weyl basis. There is also always a Majorana condition that can induces a real structure in the spinor spaces of all dimensions, but is only truncates the degrees of freedom of Weyl spinors in some dimensions. All these topics will be covered in the following sections in detail with the main objective of describing irreducible spinors in all even dimensions $D \leq 10$.
+
 % START APPENDIX
 \section{Weyl Spinors in $D = 2,4,6,8,10$}
+
+We start with the Clifford algebra,
+
+\begin{equation}
+    \label{eq:cliff_alg}
+    \{ \Gamma^\mu, \Gamma^\nu \} = 2\eta^{\mu \nu},
+\end{equation}
+
+and let the metric be $\eta^{\mu \nu} = \text{diag}\left( -1,1,\dots,1 \right)$ the $D = 2k + 2$ dimensional Minkowski metric.
+
+We first make a change of basis for the algebra elements so that the fundamental representation can be directly extracted from the algebra. Take the following linear combinations,
+
+\begin{align}
+    \label{eq:cliff_rebase}
+    & \Gamma^{0 \pm}=\frac{1}{2}\left( \pm \Gamma^0+\Gamma^1\right) \\
+    & \Gamma^{a \pm}=\frac{1}{2}\left(\Gamma^{2 a} \pm i \Gamma^{2 a+1}\right), \quad a=1, \ldots, k
+\end{align}
+
+Now the Clifford algebra \ref{eq:cliff_alg} can be stated in terms of the new operators as,
+
+\begin{equation}
+    \begin{aligned}
+    & \left\{\Gamma^{a+}, \Gamma^{b-}\right\}=\delta^{a b} \\
+    & \left\{\Gamma^{a+}, \Gamma^{b+}\right\}=\left\{\Gamma^{a-}, \Gamma^{b-}\right\}=0 .
+    \end{aligned}
+\end{equation}
+
+We can see that these operators are raising and lowering operators for $k+1$ different eigenvalues. We can write an arbitrary basis element of this representation as $\ket{s_0, \dots, s_{k}}$, with $s_i = \pm 1$. An arbitrary spinor in this representation is then in the complex span of this basis, which has $2^{k+1}$ complex components. This is what is called a Dirac spinor, or $\mathbf{2^{k+1}}_{\text{Dirac}}$.
+
+These eigenvalues $s_i$ are actually eigenvalues of rotations in planes given by the grouping of \ref{eq:cliff_rebase}. To see this explicitly, we need to recover the Lorentz algebra from the Clifford algebra. Define,
+
+\begin{equation}
+    \Sigma^{\mu v}=-\frac{i}{4}\left[\Gamma^\mu, \Gamma^v\right]
+\end{equation}
+
+The elements $\Sigma^{\mu v}$ define the Lorentz algebra os $SO(1, 2k+1)$. The generators $\Sigma^{2a,2a+1}$ commute and have eigenvalues proportional to $s_a$ when acting on the basis element $\ket{s_0, \dots, s_{k}}$. To be precise, the operator,
+
+\begin{equation}
+    S_a \equiv i^{\delta_{a, 0}} \Sigma^{2 a, 2 a+1}=\Gamma^{a+} \Gamma^{a-}-\frac{1}{2}
+\end{equation}
+
+has eigenvalue $s_a$.
+
+Next, we can define the chirality operator,
+
+\begin{equation}
+    \label{eq:chirality_op}
+    \Gamma=i^{-k} \Gamma^0 \Gamma^1 \ldots \Gamma^{d-1}
+\end{equation}
+
+which has the properties,
+
+\begin{equation}
+    (\Gamma)^2=1, \quad\left\{\Gamma, \Gamma^\mu\right\}=0, \quad\left[\Gamma, \Sigma^{\mu v}\right]=0
+\end{equation}
+
+From the first property, we see that $\Gamma$ has eigenvalues $\pm 1$. From the rest we see that we can split the basis $\ket{s_0,\dots,s_k}$ into two subspaces according to the eigenvalues of $\Gamma$. We can rewrite the chirality operator in terms of the rotation generators $S_a$ as follows,
+
+\begin{equation}
+    \Gamma=2^{k+1} S_0 S_1 \ldots S_k
+\end{equation}
+
+which allows us to identify the two chiralities as $+1$ when the product of the $s_a$ is positive and $-1$ when it is negative. The two subspaces defined by the chirality operator are called Weyl representations and are labeled as $\mathbf{2^k}_s$ and $\mathbf{2^k}_c$ for the $+1$ and $-1$ subspaces respectively. So we can finally state that the dirac representation splits into Weyl representations as,
+
+\begin{equation}
+    \mathbf{2^{k+1}}_\text{Dirac} = \mathbf{2^k}_s \oplus \mathbf{2^k}_c
+\end{equation}
 
 \section{Majorana condition}
 
