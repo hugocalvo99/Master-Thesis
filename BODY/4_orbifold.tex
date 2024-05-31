@@ -1,14 +1,329 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%		~~~~ Results ~~~~
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 \chapter{Orbifolds}
 \label{chap:orbifold}
 \pagestyle{fancy}
 
+String theory can be defined on a vast number of different target spaces. String Theory on torus target spaces is an exactly solvable theory \cite{GREEN1983437}, but it does not produce phenomenologically plausible results for several reasons, including that tori preserve all supercharges of the noncompact background \cite{GrañaTriendl}.
+
+Using orbifolds as target spaces, we fix this last issue because they can break supersymmetry \cite{Giaccari_2023}. The process can be throught of as gauging away global symmetries on the worldsheet in a way that the orbifolded spectrum is left with less supercharges than the original spectrum. This idea was first presented in \cite{DIXON1985678} in the special case of a toroidal orbifold. This specific type of orbifold will be the focus of this chapter.
+
+In general, this argument makes orbifolds a good candidate for study as target spaces, and toroidal orbifolds are the first deviations we can make from plain torus compactification, making them the easiest examples to work explicitly.
+
 \section{Orbifold compactification}
 
-\section{Orbifold group action on the spectrum}
+We are interested in compactifications of the type,
 
-Representations of the rotation group -> action by the orbifold group (discrete SO(4) rotations). So non-trivial charges.
+\begin{equation}
+    \mathbb{R}^{1,4} \times S^1 \times T^4.
+\end{equation}
+
+Consider the worldsheet scalars $X^M = (X^\mu, Z, Y^m)$ split according to the decomposition of the target space above $M = 0,\dots,9$, $\mu = 0,1,2,3,4$, $m = 1,2,3,4$. We can arrange the torus scalars as,
+
+\begin{equation}
+    \label{eq:4_complex_torus}
+    W^i=\frac1{\sqrt{2}}(Y^{2i-1}+iY^{2i}),\quad i=1,2.
+\end{equation}
+
+The torus structure is contained in each complex torus coordinate as an identification of the type $W^i \sim W^i + 1 \sim W^i + \tau^i$ for some $\tau \in \mathbb{C}$. The equations of motion for these scalars allow us to split them into left and right movers as,
+
+\begin{equation}
+    W^i(\tau,\sigma)=W_{L}^i(\tau+\sigma)+W_{R}^i(\tau-\sigma).
+\end{equation}
+
+It is now apparent that there can be 4 independent $\mathbb{Z}_p$ rotations acting on each of the torus coordinates that we have split into right and left movers.
+
+\begin{equation}
+    \label{eq:4_scalar_orb_action}
+    \begin{gathered}
+W_{L}^{1}\rightarrow e^{2\pi iu_{1}/p}W_{L}^{1} \\
+W_{R}^{1}\rightarrow e^{2\pi iu_{2}/p}W_{R}^{1} \\
+W_{L}^{2}\rightarrow e^{2\pi iu_{3}/p}W_{L}^{2} \\
+W_{R}^2\to e^{2\pi iu_4/p}W_{R}^2, 
+\end{gathered}
+\end{equation}
+
+The $S^1$ coordinate will be identified with a shift, $Z \sim Z+2\pi r/p$, making the  orbifold freely acting.
+
+This story is not complete, as we should have introduced the discrete symmetry as a subgroup of the T-duality of the 4-torus $SO(4,4\mathbb{Z})$ and chosen the integers $u_i$ accordingly to suit the rotational subgroups of the T-duality group. The details are contained in \cite{gkountoumis2023freely,Stemerdink:2022hnf}, and the integers are characterized by mass parameter $m_i$,
+
+\begin{align}
+    \frac{2\pi u_1}p=m_1+m_3,\quad\frac{2\pi u_2}p=m_2+m_4\\\frac{2\pi u_3}p=m_1-m_3,\quad\frac{2\pi u_4}p=m_2-m_4.
+\end{align}
+
+Notice that the mass parameters may not be equal in certain cases. When the right movers and left movers are rotated in unequivalent ways, we refer to the space as an asymmetric orbifold. When they rotate in the same way though, we refer to those as symmetric orifolds.
+
+Only some values of $p$ are actually permited for 4-tori. In our case, we want to restrict to orbifolds that can preserve some supercharges, so we restrict to $p = 2,3,4,6$.
+
+In order to fully characterize the action of the orbifold on the spectrum of the superstring, we still need to know the charges of the fermionic modes and of the R vacuum (the NS vacuum is a scalar so it is uncharged by definition). The first is straight forward, because they tansform the same way as the scalar modes by supersymmetry. The latter requires a bit of extra work.
+
+Take a basis element $\ket{s_0, s_1, s_2, s_3, s_4}_{L/R}$ of the R vacuum. The eigenvalues $s_i$, $i = 1,2,3,4$, by construction, are eigenvalues of the $SO(2)$ rotations of the plane $(2i+1,2i+2)$. Since the orbifold acts precisely as separate discrete subgroups of these $SO(2)$ rotations for both left and right movers, we can conclude that,
+
+\begin{align}
+    \ket{s_0,s_1,s_2,s_3,s_4}_{L} \rightarrow  e^{2\pi i (\tilde{u}_1 s_3 + \tilde{u}_2 s_4)}\ket{s_0,s_1,s_2,s_3,s_4}_{L}\\
+    \ket{s_0,s_1,s_2,s_3,s_4}_{R} \rightarrow e^{2\pi i (\tilde{u}_3 s_3 + \tilde{u}_4 s_4)} \ket{s_0,s_1,s_2,s_3,s_4}_{R}
+\end{align}
+
+Looking at the charges of the scalars, we can read that,
+
+\begin{align}
+    \tilde{u}_{3}=\frac{m_{1}+m_{3}}{2\pi},u_{3}=\frac{m_{2}+m_{4}}{2\pi},\\\tilde{u}_{4}=\frac{m_{1}-m_{3}}{2\pi},u_{4}=\frac{m_{2}-m_{4}}{2\pi}.
+\end{align}
+
+The classification is complete if we specify values for $(s_3, s_4)$, for a left moving vacuum the charges are,
+
+\begin{align}
+    (+1/2, +1/2) : m_1,\\
+    (+1/2, -1/2) : -m_1,\\
+    (-1/2, +1/2) : m_3,\\
+    (-1/2, -1/2) : -m_3,
+\end{align}
+
+while for a right moving vacuum they are,
+
+\begin{align}
+    (+1/2, +1/2) : m_2\\
+    (+1/2, -1/2) : -m_2\\
+    (-1/2, +1/2) : m_4\\
+    (-1/2, -1/2) : -m_4
+\end{align}
+
+We can notice that only 2 aspects mattered to find out how all these objects were charged by the orbifold action. Firstly, we need to know if it is left or right moving. Secondly, since it acts as rotations in the $SO(4)$ subgroup related to the torus directions of the Lorentz group $SO(1,9)$, we only need to know in which representation of the Lorentz group an object sits, and we will automatically know how it is charged by the orbifold action.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{cccc}
+    Sector              & State                          & L charge     & R charge     \\ \hline
+    \multirow{4}{*}{NS} & $b_{-1/2}^1\ket{0}$            & $m_1+m_3$    & $m_2+m_4$    \\
+                        & $\overline{b}_{-1/2}^1\ket{0}$ & $-(m_1+m_3)$ & $-(m_2+m_4)$ \\
+                        & $b_{-1/2}^2\ket{0}$            & $m_1-m_3$    & $m_2-m_4$    \\
+                        & $\overline{b}_{-1/2}^2\ket{0}$ & $-(m_1-m_3)$ & $-(m_2-m_4)$ \\ \hline
+    \multirow{4}{*}{R}  & $\ket{s_0,s_1,s_2,+1/2,+1/2}$  & $m_1$        & $m_2$        \\
+                        & $\ket{s_0,s_1,s_2,-1/2,-1/2}$  & $-m_1$       & $-m_2$       \\
+                        & $\ket{s_0,s_1,s_2,-1/2,+1/2}$  & $m_3$        & $m_4$        \\
+                        & $\ket{s_0,s_1,s_2,-1/2,-1/2}$  & $-m_3$       & $-m_4$      
+\end{tabular}
+\end{table}
+
+It is more useful for this thesis to organize all these objects as representations of $SO(2)\times SO(2) \subset SO(4)$. The bosonic part comes from a $\mathbf{4}$ of $SO(4)$, and it splits into $(\mathbf{2},\mathbf{1}) \oplus (\mathbf{1},\mathbf{2})$ of $SO(2)\times SO(2)$. Just to make it explicit, take \ref{eq:4_complex_torus}, we have,
+
+\begin{align}
+    Y^1_L = \frac{1}{\sqrt{2}} (W^1_L + \overline{W^1}_L) \\
+    Y^2_L = \frac{1}{\sqrt{2i}} (W^1_L - \overline{W^1}_L) 
+\end{align}
+
+The charges of the complex torus coordinates lead us to just a usual $SO(2)$ rotation,
+
+\begin{equation}
+    \begin{bmatrix}Y_L^1\\Y_L^2\end{bmatrix}\to\begin{bmatrix}\cos{(m_1+m_3)}&&-\sin{(m_1+m_3)}\\\sin{(m_1+m_3)}&&\cos{(m_1+m_3)}\end{bmatrix}\begin{bmatrix}Y_L^1\\Y_L^2\end{bmatrix}
+\end{equation}
+
+An equivalent calculation with $W^2$ leads to the same rotation but with the respective charges for the real coordinates $(Y^3, Y^4)$. We could read this from the table from the fact that the charges present themselves in the same linear combination for each $SU(2)$ vector. For the spinors, a similar phenomenom happens.
+
+We now can arrange the spinors into chiral representations of $SO(4)$. Take for instance the components  with charge $m_1$, they can be arranged into the $\mathbf{2}_s$ of $SO(4)$. The other half of the spinor, with charge $m_3$ forms a $\mathbf{2}_c$ of $SO(4)$.
+
+\begin{table}[h]
+    \label{table:superimportant_orbifold_charges}
+    \centering
+    \begin{tabular}{ccc}
+    SO(4) rep                 & L charge  & R charge  \\ \hline
+    $(\mathbf{2},\mathbf{1})$ & $m_1+m_3$ & $m_2+m_4$ \\
+    $(\mathbf{1},\mathbf{2})$ & $m_1-m_3$ & $m_2-m_4$ \\ \hline
+    $\mathbf{2}_s$            & $m_1$     & $m_2$     \\
+    $\mathbf{2}_c$            & $m_3$     & $m_4$    
+\end{tabular}
+\caption{Orbifold charges for relevant representations of the subgroup of the Lorentz group corresponding to the torus $SO(4)\subset SO(1,9)$.}
+\end{table}
+
+Usualy, vectors of $SO(4)$ will not be split into their $SO(2)\times SO(2)$ components unless $m_1 = m_2 = m_3 = m_4 \neq 0$.
+
+
+\section{Branes in orbifold backgrounds}
+
+Building D-branes on orbifold backgrounds is not as easy as one could have expected. The orbifold action may break the boundary conditions of the open strings attached to the D-brane, forbidding it from existing in the theory. As we will se in the following, both the D1 and D5 branes we are interested in can survive if we restrict our study to symmetric orbifolds.
+
+First of all, consider the general scenario of a single D brane as discussed in \ref{sec:pre_branes}. We introduced the conditions on the open string modes that enable us to define D-branes,
+
+\begin{equation}
+    a^a = \tilde{a}^a,
+\end{equation}
+
+if the boundary conditions were Neumann, or
+
+\begin{equation}
+    a^i = -\tilde{a}^i,
+\end{equation}
+
+if they were Dirichlet. The $a$ and $i$ indices are in the vector representation of the corresponding subgroups of $SO(1,9)$. The D-brane corresponding to these boundary conditions will be able to exist in the orbifold background if said conditions are respected by the orbifold group action.
+
+As the orbifold group only charges the $T^4$ directions, we can restrict the study the boundary conditions on these directions. First of all, taking from the complex coordinate definition \ref{eq:4_complex_torus}, we define the modes,
+
+\begin{align}
+    w^i = \frac{1}{\sqrt{2}} (a^{2i-1} + i a^{2i}) \\
+    \tilde{w}^1 = \frac{1}{\sqrt{2}} (\tilde{a}^{2i-1} + i \tilde{a}^{2i})
+\end{align}
+
+The orbifold action on this complex modes is as in \ref{eq:4_scalar_orb_action},
+
+\begin{equation}
+    \begin{aligned}
+        w^i \rightarrow e^{i(m_1 \pm m_3)} w^1\\
+        \tilde{w}^1 \rightarrow e^{i(m_2 \pm m_4)} \tilde{w}^1
+    \end{aligned}
+\end{equation}
+where the $i = 1$ takes the $+$, and $i = 2$, the $-$ signs.
+
+Now, take for instance the first complex coordinate $w^1$ and $\tilde{w}^1$. If the brane we wanted to construct had only N or D conditions on this $T^2$, say $a^1  = \pm \tilde{a}^1$ and $a^2 = \pm \tilde{a}^2$, this translates as $w^1 = \pm \tilde{w}^1$. In the other hand, if we had mixed conditions on these directions, $a^1 = \pm \tilde{a}^1$ and $a^2 = \mp \tilde{a}^2$, they would imply $\overline{w}^1 = \pm\tilde{w}^1$.\footnote{The overline represents complex conjugation.}
+
+Since the orbifold action is a phase on the complex modes, the only difference between different brane constructions will be if they imply complex conjugation in the boundary conditions. This leads to essentially 4 different cases that we can treat without loss of generality.
+
+\textbf{Case 1: } $w^1 = \tilde{w}^1$ and $w^2 = \tilde{w}^2$. The group action on these conditions is,
+
+\begin{equation}
+    \begin{cases}
+        e^{i(m_1 + m_3)} w^1 = e^{i(m_2 + m_4)} \tilde{w}^1 \\
+        e^{i(m_1 - m_3)} w^2 = e^{i(m_2 - m_4)} \tilde{w}^2
+    \end{cases}
+\end{equation}
+
+From which we extract the condition on the mass parameters,
+
+\begin{equation}
+    \begin{cases}
+        m_1 = m_2 \\
+        m_3 = m_4
+    \end{cases}
+\end{equation}
+
+This is what is known as a symmetric orbifold, one in which left and right movers are rotated in the same manner. The D1 and D5 branes defined in \ref{tab:3_d1d5_definition} are examples that follow this case.
+
+\textbf{Case 2: } $\overline{w}^1 = \tilde{w}^1$ and $\overline{w}^2 = \tilde{w}^2$. The group action on these conditions is,
+
+\begin{equation}
+    \begin{cases}
+        e^{-i(m_1 + m_3)} \overline{w}^1 = e^{i(m_2 + m_4)} \tilde{w}^1 \\
+        e^{-i(m_1 - m_3)} \overline{w}^2 = e^{i(m_2 - m_4)} \tilde{w}^2
+    \end{cases}
+\end{equation}
+
+From which we extract the condition on the mass parameters,
+
+\begin{equation}
+    \begin{cases}
+        m_1 = -m_2 \\
+        m_3 = -m_4
+    \end{cases}
+\end{equation}
+This kind of orbifold is usually called anti-symmetric, in the sense that the right movers rotate in the oposite direction of the left movers.
+
+The last two cases are not particularly useful for this thesis but are left here for the sake of completeness. There is, as far as I know, no special name for the orbifolds that allow these kinds of branes.
+
+\textbf{Case 3: } $w^1 = \tilde{w}^1$ and $\overline{w}^2 = \tilde{w}^2$. The group action on these conditions is,
+
+\begin{equation}
+    \begin{cases}
+        e^{i(m_1 + m_3)} w^1 = e^{i(m_2 + m_4)} \tilde{w}^1 \\
+        e^{-i(m_1 - m_3)} \overline{w}^2 = e^{i(m_2 - m_4)} \tilde{w}^2
+    \end{cases}
+\end{equation}
+
+From which we extract the condition on the mass parameters,
+
+\begin{equation}
+    \begin{cases}
+        m_1 = m_4 \\
+        m_2 = m_3
+    \end{cases}
+\end{equation}
+
+\textbf{Case 4: } $\overline{w}^1 = \tilde{w}^1$ and $w^2 = \tilde{w}^2$. The group action on these conditions is,
+
+\begin{equation}
+    \begin{cases}
+        e^{-i(m_1 + m_3)} \overline{w}^1 = e^{i(m_2 + m_4)} \tilde{w}^1 \\
+        e^{i(m_1 - m_3)} w^2 = e^{i(m_2 - m_4)} \tilde{w}^2
+    \end{cases}
+\end{equation}
+
+From which we extract the condition on the mass parameters,
+
+\begin{equation}
+    \begin{cases}
+        m_1 = -m_4 \\
+        m_2 = -m_3
+    \end{cases}
+\end{equation}
+
+In the following section we will study in more detail the D1/D5 system defined in \ref{tab:3_d1d5_definition}, and as we have seen in \textbf{Case 1}, only symmetric orbifolds allow the existence of the system. We will restrict to $m_1 = m_2$ and $m_3 = m_4$ for the rest of the thesis.
+
+\section{Orbifold group action on the spectrum of the D1/D5 system}
+
+The effect of orbifolding on the spectrum of a theory projects out states that are not invariant under the orbifold action, gauging away the global symmetry that defined the orbifold in the first place \cite{Giaccari_2023}. It was discovered that for freely acting orbifolds, this process happens through a Higgs-like mechanism that gives mass to states charged under the obrifold action \cite{gkountoumis2023freely} (thus the name \textit{mass parameters}).
+
+In this section we will study the resulting spectrum of the D1/D5 system defined in \ref{tab:3_d1d5_definition} after orbifolding the target space. The remaining field content will lead us to discover the amount of supercharges in the orbifolded theory, from which we will read and classify the supersymmetry breaking for different orbifolds.
+
+Firstly, let us summarize the results of section \ref{sec:D1D5_spectrum}. Note that all representations labeled as $(\cdot, \cdot, \cdot)$ are representing the $SO(1,1) \times SO(4)_E \times SO(4)_I$ representations in that order.
+
+\begin{table}[h]
+\label{tab:4_d1d5_spectrum}
+    \begin{tabular}{lc|c|c}
+                                                          & 1-1 strings                                       & 5-5 strings                                       & 1-5 strings                                  \\ \hline
+    \multicolumn{1}{l|}{Bosonic}                    & $(2,1,1)+(1,4,1)+(1,1,4)$                         & $(2,1,1)+(1,4,1)+(1,1,4)$                         & $2(1,1,2_s)$                                  \\ \hline
+    \multicolumn{1}{l|}{\multirow{2}{*}{Fermionic}} & $(1_s,2_s,2_s)+(1_s,2_c,2_c)+$                    & $(1_s,2_s,2_s)+(1_s,2_c,2_c)+$                    & \multirow{2}{*}{$2(1_s,2_s,1)+2(1_c,2_c,1)$} \\
+    \multicolumn{1}{l|}{}                                 & \multicolumn{1}{l|}{$(1_c,2_s,2_c)+(1_c,2_c,2_s)$} & \multicolumn{1}{l|}{$(1_c,2_s,2_c)+(1_c,2_c,2_s)$} &                                             
+\end{tabular}
+\caption{Massless spectrum of the D1/D5 system before projecting charged states.}
+\end{table}
+
+\textbf{Case 1: } $m_i = 0$, corresponds to the spectrum in \ref{tab:4_d1d5_spectrum}, so the spectrum has $\mathcal{N} = (4,4)$ supercharges.
+
+\textbf{Case 2: } $m_1 = m_2 = 0$ and $m_3 = m_4 \neq 0$. In this case, all representations containing the $\mathbf{2}_c$ or $\mathbf{4}$ of $SO(4)_I$ are projected out. This projection leads to the following spectrum,
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{lc|c|c}
+                                   & 1-1 strings                   & 5-5 strings                   & 1-5 strings                 \\ \hline
+    \multicolumn{1}{l|}{Bosonic}   & $(2,1,1)+(1,4,1)$             & $(2,1,1)+(1,4,1)$             & $2(1,1,2_s)$                \\ \hline
+    \multicolumn{1}{l|}{Fermionic} & $(1_s,2_s,2_s)+(1_c,2_c,2_s)$ & $(1_s,2_s,2_s)+(1_c,2_c,2_s)$ & $2(1_s,2_s,1)+2(1_c,2_c,1)$
+\end{tabular}
+\end{table}
+
+Counting states in each sector of the spectrum we see that supersymmetry can still be present and indeed the field content is compatible with $(4,4)$ supersymmetry, implying that even if some fields were projected away, all supercharges can remain in the theory.
+
+\textbf{Case 3: } $m_1 = m_2 \neq 0$ and $m_3 = m_4 = 0$. This case is similar to the previous but now the $\mathbf{2}_c$ survives, and the $\mathbf{2}_s$ is the one projeted out.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{lc|c|c}
+                                   & 1-1 strings                   & 5-5 strings                   & 1-5 strings                 \\ \hline
+    \multicolumn{1}{l|}{Bosonic}   & $(2,1,1)+(1,4,1)$             & $(2,1,1)+(1,4,1)$             & -                \\ \hline
+    \multicolumn{1}{l|}{Fermionic} & $(1_s,2_c,2_c)+(1_c,2_c,2_c)$ & $(1_s,2_c,2_c)+(1_c,2_c,2_c)$ & $2(1_s,2_s,1)+2(1_c,2_c,1)$
+\end{tabular}
+\end{table}
+
+In this case, just looking at the 1-5 sector we notice that only fermions survive. This is a clear indication that all supercharges were broken, as the superpartners of the 1-5 fermions are not in the spectrum anymore. The remaining supercharges are $\mathcal{N} = (0,0)$.
+
+\textbf{Case 3.1: } $m_1 = m_2 \neq 0$ and $m_3 = m_4 \neq 0$, with $m_1 \neq m_3$. In this case, every object that is not a singlet under $SO(4)_I$ is charged under the orbifold action.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{lc|c|c}
+                                   & 1-1 strings                   & 5-5 strings                   & 1-5 strings                 \\ \hline
+    \multicolumn{1}{l|}{Bosonic}   & $(2,1,1)+(1,4,1)$             & $(2,1,1)+(1,4,1)$             & -                \\ \hline
+    \multicolumn{1}{l|}{Fermionic} & - & - & $2(1_s,2_s,1)+2(1_c,2_c,1)$
+\end{tabular}
+\end{table}
+
+It is clear again that no supercharges remain in the theory. It was always expected that turning all the mass parameters would break all supersymmetry as it was already known for the closed string.
+
+\textbf{Case 3.2: } $m_1 = m_2 = m_3 = m_4 \neq 0$. In thi special case when all parameters are aqual, we see that we should split the representations according to $SO(2) \times SO(2) \subset SO(4)_I$. In this special case, half of the $\mathbf{4}$ of $SO(4)_I$ is uncharged.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{lc|c|c}
+                                   & 1-1 strings                   & 5-5 strings                   & 1-5 strings                 \\ \hline
+    \multicolumn{1}{l|}{Bosonic}   & $(2,1,1)+(1,4,1) + (1,1,(1,2))$             & $(2,1,1)+(1,4,1)$             & -                \\ \hline
+    \multicolumn{1}{l|}{Fermionic} & - & - & $2(1_s,2_s,1)+2(1_c,2_c,1)$
+\end{tabular}
+\end{table}
+
+Although the field content is enlarged in this case compared to the previous, again all supersymmetry is broken to $\mathcal{N} = (0,0)$.
+

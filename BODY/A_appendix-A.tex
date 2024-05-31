@@ -60,6 +60,7 @@ Next, we can define the chirality operator,
 which has the properties,
 
 \begin{equation}
+    \label{eq:chiral_properties}
     (\Gamma)^2=1, \quad\left\{\Gamma, \Gamma^\mu\right\}=0, \quad\left[\Gamma, \Sigma^{\mu v}\right]=0
 \end{equation}
 
@@ -75,6 +76,84 @@ which allows us to identify the two chiralities as $+1$ when the product of the 
     \mathbf{2^{k+1}}_\text{Dirac} = \mathbf{2^k}_s \oplus \mathbf{2^k}_c
 \end{equation}
 
+The staple example in string theory is $D=10$, where we have the decomposition,
+
+\begin{equation}
+    \mathbf{32}_{\text{Dirac}} = \mathbf{16}_s \oplus \mathbf{16}_c
+\end{equation}
+
 \section{Majorana condition}
 
+Up until now, we have been able to define Weyl spinors, that have a well defined chirality and have half the degrees of freedom of Dirac spinors. It will be shown in this section that a real structure can be imposed for some values of $D$, effectively halving the degrees of freedom of a Dirac spinor.
+
+From the definition \ref{eq:cliff_rebase}, and the action on the basis elements $\ket{s_0,\dots, s_k}$, we see that as a matrix, $\Gamma^{a\pm}$ are real. For the original gamma matrices defined in \ref{eq:cliff_alg}, we see that the matrices $\Gamma^{2a}$ are real, while the matrices $\Gamma^{2a+1}$ are purely imaginary.
+
+Now, take all of the purely imaginary matrices, and define the operators,
+
+\begin{equation}
+    B_1=\Gamma^3 \Gamma^5 \ldots \Gamma^{d-1}, \quad B_2=\Gamma B_1
+\end{equation}
+
+From the commutation relations of the Gamma matrices we have that,
+
+\begin{equation}
+    B_1\Gamma^\mu B_1^{-1}=(-1)^k\Gamma^{\mu*},\quad B_2\Gamma^\mu B_2^{-1}=(-1)^{k+1}\Gamma^{\mu*},
+\end{equation}
+
+and for the Lorentz generators,
+
+\begin{equation}
+    \label{eq:lorentz_conjugate}
+    B\Sigma^{\mu\nu}B^{-1}=-\Sigma^{\mu\nu*},
+\end{equation}
+
+for either $B_1$ or $B_2$.
+
+Now, take a Dirac spinor $\xi$, and make a change of basis given by $\xi \rightarrow B\xi$. Then, by the trnasformation rules of $\xi$ and the relation \ref{eq:lorentz_conjugate}, we see that $B\xi$ trnasforms as a conjugate spinor $\xi^*$.
+
+The fact that we are able to linearly transform into conjugate spinors means that we may be able to relate the real and imaginary components of a spinor in a way consistent with Lorentz transformations. Concretely, we propose the Majorana condition,
+
+\begin{equation}
+    \xi^* = B\xi.
+\end{equation}
+
+Now, taking the conjugates $(B\xi)^* = \xi = B^*B\xi$, so $B^* B = 1$. Now, we can calculate explicitly using the definitions for $B_1$ and $B_2$ that,
+
+\begin{equation}
+    B_1^*B_1=(-1)^{k(k+1)/2},\quad B_2^*B_2=(-1)^{k(k-1)/2}.
+\end{equation}
+
+So the condition $B^* B = 1$ can only be satisfied with $k = 0, 1, 3$ (mod 4). Which means that Majorana spinors can exist in $D = 2, 4, 8$ (mod 8) but not in $D = 6$ (mod 8).
+
+We are ultimately interested in Majorana-Wey spinors, so we need to discuss whether a Majorana condition can be applied to a Weyl spinor. Take the chirality matrix $\Gamma$. We need to check if a Majorana change of basis can keep the chirality consistant. Otherwise, there would be mixing between right and left moving spinors, making them unconsistant with Lorentz trnasofrmations.
+
+From the properties of the chirality matrix \ref{eq:chiral_properties}, we calculate,
+
+\begin{equation}
+    B_1\Gamma B_1^{-1}=B_2\Gamma B_2^{-1}=(-1)^k\Gamma^*,
+\end{equation}
+
+so when $k$ is even, each Weyl representation transforms as its own conjugate, while for $k$ odd, the transformation rules get exchanged.
+
+This automatically forbids Majorana-Weyl spinors from existing in $D = 4, 6$ (mod 8), so that both conditions are only compatible in $D = 2$ (mod 8). This is a very interesting result, because superstring theory is formulated from MW spinors in the worldsheet, this is $D = 2$, and produces MW spinors in spacetime, which is necessarily $D = 10$, it is quite a beautiful coincidence.
+
+
 \section{Table of irreducible spinors in even dimensions}
+
+To wrap up this brief lesson on spinors, we can list all of the minimal degrees of freedom of a spinor in any (even) dimension mod 8. For the sake of completeness I will also list the minimal representations in odd dimensions without any derivation (see \cite{Polchinski_1998} for details),
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{ccccc}
+    $d$ & Majorana & Weyl    & Majorana-Weyl & minimal dof \\ \hline
+    2   & yes      & self    & yes           & 1           \\
+    3   & yes      & -       & -             & 2           \\
+    4   & yes      & complex & -             & 4           \\
+    5   & -        &         & -             & 8           \\
+    6   & -        & self    & -             & 8           \\
+    7   & -        & -       & -             & 16          \\
+    8   & yes      & complex & -             & 16          \\
+    9   & yes      & -       & -             & 16          \\
+    10  & yes      & self    & yes           & 16         
+\end{tabular}
+\end{table}

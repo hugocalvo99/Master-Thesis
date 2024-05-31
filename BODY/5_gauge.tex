@@ -1,14 +1,104 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%		~~~~ Conclusions ~~~~
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 \chapter{D-brane gauge theories}
 \label{chap:gauge}
 \pagestyle{fancy}
 
+In this chapter we will discuss the actions that correspond to the spectrums discussed in Chapter \ref{chap:spectrum}. In the context of D-branes, string endpoints can move through the worldvolume of the brane. The massless excitations describe a SYM type of action for single stacks of branes. Later on, we will study the worldvolume theory of the D1/D5 system, this will be a gauge theory on the intersection of the two branes, leading to a 2D action. Lastly, we will discuss two different limits of the action that describe a bound system of branes an a decaying one.
+
 \section{Gauge theory on a single brane and dimensional reduction}
+
+There is a straight forward way of justifying a SYM action for the world volume theory of the D-brane fields. We can start by introducing the DBI action for a single brane in a bosonic theory \cite{taylor1998lectures},
+
+\begin{equation}
+    S=-T_p\int d^{p+1}\xi\mathrm{~}e^{-\phi}\mathrm{~}\sqrt{-\det(G_{\alpha\beta}+B_{\alpha\beta}+2\pi\alpha^{\prime}F_{\alpha\beta})}.
+\end{equation}
+
+where the G, B and $\phi$ are the pullbacks of the 10D metric, B field and dilaton to the D-brane world volume. Meanwhile, $F$ is the field strength tensor associated to the gauge field $A_\alpha$. Expanding to first order,
+
+\begin{equation}
+    S=-\tau_pV_p-\frac1{4g_{\mathrm{YM}}^2}\int d^{p+1}\xi\left(F_{\alpha\beta}F^{\alpha\beta}+\frac2{(2\pi\alpha^{\prime})^2}\partial_\alpha X^a\partial^\alpha X^a\right)+\mathcal{O}(F^4),
+\end{equation}
+
+from which we read a $U(1)$ gauge theory in $p+1$ dimensions with $9-p$ scalars, with a YM coupling given by,
+
+\begin{equation}
+    g_{\mathrm{YM}}^2=\frac1{4\pi^2\alpha^{\prime2}\tau_p}=\frac g{\sqrt{\alpha^{\prime}}}(2\pi\sqrt{\alpha^{\prime}})^{p-2}.
+\end{equation}
+
+The supersymmetric extension of the DBI action is possible to rite but unnecessary, because to first order it is effectively the supersymmetryc completion of the previous action. The extension to multiple coincident Dp-branes is also straightforward as we just need to add $U(N)$ gauge fields instead of $U(1)$. Consider the case $p=9$, this is a D9-brane covering all the target space. To first order, the worldvolume theory is $D = 10$, $\mathcal{N} = 1$, $U(N)$ SYM,
+
+\begin{equation}
+    \label{eq:5_10d_wv_action}
+    S=\int d^{10}\xi\mathrm{~}\left(-\frac14\mathrm{Tr~}F_{\mu\nu}F^{\mu\nu}+\frac i2\mathrm{Tr~}\bar{\psi}\Gamma^\mu D_\mu\psi\right)
+\end{equation}
+
+Here we see that the field content is a $\mathbf{10}$ vector and a $\mathbf{16}_s$ MW spinor of $SO(1,9)$, in agreeance with the spectrum of Chapter \ref{chap:spectrum}. Note that the gauge field $A^\mu$ and the spinor $\psi$ are both in the adjoint representation of $U(N)$, so the field strength will be,
+
+\begin{equation}
+    F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu-ig_{YM}[A_\mu,A_\nu],
+\end{equation}
+
+and the covariant derivative will be,
+
+\begin{equation}
+    D_\mu\psi=\partial_\mu\psi-ig_{\mathrm{YM}}[A_\mu,\psi].
+\end{equation}
+
+Dimensional reduction of the action \ref{eq:5_10d_wv_action} can be performed by assuming that all coordinate dependence of the fields is on $\xi^\alpha$ with $\alpha = 0,\dots,p$. In this case the index $\mu$ is split into $(\alpha, a)$ with $a = p+1, \dots, 9$, effectively splitting the Lorentz symmetry $SO(1,9) \rightarrow SO(1,p) \times SO(9-p)$. All derivatives $\partial_a$ drop out of the action, and we are left with,
+
+\begin{equation}
+    S=\frac1{4g_{\mathrm{YM}}^2}\int d^{p+1}\xi\mathrm{~Tr~}(-F_{\alpha\beta}F^{\alpha\beta}-2(D_\alpha X^a)^2+[X^a,X^b]^2+\mathrm{fermions}).
+\end{equation}
+
+The agreeance with the bosonic spectrum is easy to check, as the vector $A^\alpha$ is on the $(\mathbf{p}, \mathbf{1})$ and the scalars form the $(\mathbf{1}, \mathbf{9-p})$ just by looking at the indices $\alpha$ and $a$. The fermions are not as easy to check from the action, but they also follow the decomposition described in \ref{chap:spectrum}. Since we started with 16 supercharges, 16 supercharges remain irregardless of the vaulue of $p$. For example, in the case of a stack of D4-branes, the worldvolume theory would be maximal $\mathcal{N} = 4$ SYM in $D = 4$. If we were to study a stack of D1-branes, the action would be that of $\mathcal{N} = (8,8)$ SYM in $D = 2$. The fact is that since we started with maximally supersymmetric SYM, we always land in a theory with maximal supersymmetry.
 
 \section{Gauge theory of the D1/D5 system}
 
+Now that we know that single brane stacks are described by SYM theories with maximal supersymmetry, we want to discuss the case of the worldvolume theory in the intersection of the D1 and D5 branes. As hinted by the spectrum \ref{chap:spectrum}, we will have 3 sectors,
+
+\textbf{1-1 strings: } As discussed in the previous section, the theory of this sector will be the dimensional reduction of $\mathcal{N} = 1$, $U(Q_1)$ SYM in $D=10$ to 1+1 dimensions. In our case the theory will be defined in the $(t,x^5)$ directions. The bosonic content of this sector is,
+
+\begin{equation}
+    \begin{aligned}
+        &\text{Vector multiplet: }A_0^{(1)},A_5^{(1)},Y_m^{(1)},m=1,2,3,4 \\
+        &\text{Hypermultiplet: }Y_i^{(1)},i=6,7,8,9    
+    \end{aligned}
+\end{equation}
+
+\textbf{5-5 strings: } The field content of this sector is essentially the same of the 1-1 string when we dimensionally reduce to the 1+1 theory, but instead having $U(Q_5)$ gauge group. 
+
+\begin{equation}
+    \begin{aligned}
+        &\text{Vector multiplet: }A_0^{(5)},A_5^{(5)},Y_m^{(1)},m=1,2,3,4 \\
+        &\text{Hypermultiplet: }Y_i^{(5)},i=6,7,8,9    
+    \end{aligned}
+\end{equation}
+
+Up untili now we have essentially two copies of $\mathcal{N}=(8,8)$ SYM in 1+1 dimensions, with R-symmetry group $SO(4)_I$. The next ingredient in the theory will break supersymmetry by half to The $SU(2)_R$ of $SU(4) = SU(2)_R \times SU(2)_L$.
+
+\textbf{1-5 and 5-1 strings: } From Chapter \ref{chap:spectrum} we argued that the bosonic spectrum of 1-5 and 5-1 strings should follow $(1, 1, \mathbf{2}_s)$, this is, a MW spinor of $SO(4)_I$ that is a singlet under $SO(1,1) \times SO(4)_E$. They can be described by $\chi^1$ and $\chi^2$ and can be joined as $\chi = 1/\sqrt{2} (\chi^1 + i \chi^2)$ to form a Weyl spinor of $SO(4)$ with + chirality. It will prove usefull to split the spinor into its components,
+
+\begin{equation}
+    \chi=\begin{pmatrix}A\\B^\dagger\end{pmatrix}
+\end{equation}
+
+It is only left to define the gauge indices. Since both the 1-5 and 5-1 string have one end in the D1 and other in the D5 branes, the Chan-Paton indices will be in the fundamental of $U(Q_1)$ and of $U(Q_5)$. This is commonly called the bifundamental representation in the sense that the object has 2 indices, one in each of the fundamentals. The important difference is that now when this scalars get coupled to the gauge fields $A^{(1)}$ or $A^{(5)}$ they will do it as fundamental matter instead of adjoint matter.
+
+We are now ready to write the action, we will go term by term,
+
+\begin{equation}
+    S_{1-1}=k_{11} \int d^{2}\xi\text{ Tr }(-F^{(1)}_{\alpha\beta}F^{(1) \alpha\beta}-2(D_\alpha Y^{(1)a})^2+[Y^{(1)a},Y^{(1)b}]^2)
+\end{equation}
+
+\begin{equation}
+    S_{5-5}=k_{55} \int d^{2}\xi\text{ Tr }(-F^{(5)}_{\alpha\beta}F^{(5) \alpha\beta}-2(D_\alpha Y^{(5)a})^2+[Y^{(5)a},Y^{(5)b}]^2)
+\end{equation}
+
+\begin{equation}
+    S_{1-5} = \int d^2\xi \text{ Tr } \left( |D_\alpha \chi|^2 + \frac{\chi^\dagger \chi}{2\pi \alpha'} (Y^{(1)}_m - Y^{(5)}_m)^2 + g \sum_{I = 1}^3 (\chi^\dagger \tau^I \chi)^2\right)
+\end{equation}
+
+In this last action, the first term is just the kinetic term with covariant derivative $D_\alpha \chi = (\partial_\alpha + i A^{(1)}_\alpha - i A^{(5)}_\alpha) \chi$. The last 2 terms come from supersymmetry.
+
+
 \section{Coulomb and Higgs branch}
+
