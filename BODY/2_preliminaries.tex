@@ -101,7 +101,39 @@ All the rest of the single Dp-brane spectrums can be computed from the D9 spectr
 \end{align*}
 
 \section{Supersymmetry}
+\label{sec:susy}
 
-%Specific discusion around string theory. Closed 32 supercharges, branes are 1/2-BPS objects, D1/D5 is 1/4-BPS. Representations of supercharges
+Supersymmetry is the name given to systems that exhibit a transformation between bosons and fermions that leave the theory invariant. As a global symmetry, the existance of a conserved charge, called supercharge, follows from Noether's theorem. The most basic example of supersymmetry can be found in a 2D theory with a massless MW spinor and a scalar,
 
-Esto es una prueba de compilación
+\begin{equation}
+    S = \int d^2 z \left( \partial \phi \overline{\partial}\phi + \psi \partial \psi \right).
+\end{equation}
+
+This theory is invariant (on-shell) under the spinor valued transformation,
+
+\begin{equation}
+    \begin{aligned}
+        \delta_\epsilon \phi = \epsilon \psi\\
+        \delta_\epsilon \psi =  \epsilon \overline{\partial} \phi
+    \end{aligned}
+\end{equation}
+
+In this case, there will be only one supercharge $Q$ in the same representation as the spinor field $\psi$ following the algebra $\{ Q, Q\} = 2P$, where $P$ is the generator of translations. This illustrative example can be generalized to the case of $D$ dimensions and $\mathcal{N}$ supercharges. These supercharges will follow the algebra,
+
+\begin{equation}
+    \{ Q_i, \overline{Q}_j \} = 2 \delta_{ij} \Gamma^\mu P_\mu,
+\end{equation}
+
+where $\overline{Q}_j = Q^\dagger_j \Gamma^0$, and $\Gamma^\mu$ are the gamma matrices suitable to the representation of $Q_i$.
+
+The number of degrees of freedom carried by $Q_i$ represents the amount of conserved supercharges of the theory. Assuming these supercharges are Weyl spinors, and $D = 2\nu$, each $Q_i$ would have $2^\nu$ real coponents, for a total of $2^\nu \mathcal{N}$ supercharges.
+
+There is an extra internal symmetry between the supercharges called R-symmetry. In general it is given by the indices of the supercharges. In our case, we will make a slight abuse and say that the R-symmetry is $SO(n)$, while in reality it is its double cover $Spin(n)$, and the indices of the extended supercharges will be spinor indices of the spin group.
+
+Now imagine that we want to write a theory containing a massless vector boson and a massless fermion. Massless vectors in $D = 2 \nu$ dimensions have $D-2$ degrees of freedom, while Weyl fermions have $2^{\nu-1}$. In $D = 10$ it turns out that fermions can be Majorana an Weyl at the same time, so the number of components gets further reduced to $2^{\nu-2}$. Equating these quantities, we find that $\mathcal{N} = 1$ supersymmetry without extra boson fields can only be realized in $D = 10$, and for $D > 10$, we would need spin 2 fields to be able to match degrees of freedom. This is what we will call maximal supersymmetry, the case where only one supercharge pairs a fermion to a boson of a particular spin value supersymmetrically.
+
+Maximal supersymmetric gauge theories will then have 16 supercharges and in this thesis will all come from dimensional reduction of $D = 10$ $\mathcal{N} = 1$ SYM. Maximal supergravity has 32 supercharges and come naturally from $D = 11$ $\mathcal{N} = 1$ supergravity.
+
+
+For example, superstring theory in a Minkowski background has 2 superharges $Q_+$, $Q_-$, which are MW spinors in $D = 10$ of oposite chiralities. Each of them has 16 real components, for a total of 32 supercharges.
+

@@ -1,8 +1,67 @@
 
-\chapter{Infrared limit and Black Hole thermodynamics}
-\label{chap:infrared}
+\chapter{Orbifold gauge theory via Sherk-Schwarz reduction}
+\label{chap:ss_red}
 \pagestyle{fancy}
 
-\section{IR SCFT = black hole theormodynamics}
+Up until now, we discussed the open string spectrum in Chapter \ref{chap:spectrum}, where we found how the orbifold acts on the different representations of the internal symmetry $SO(4)$. After successfully finding the massless spectrum in orbifold backgrounds, we presented the worldvolume effective actions of D-brane stacks and a very special brane system in Chapter \ref{chap:gauge}, with the caveat that all those theories lived in a flat background.
 
-\section{Predictions of IR limit in orbifold context}
+The goal of this chapter is to merge those two ideas and arrive at an effective theory of brane worldvolumes on orbifold backgrounds. We will se that we can impose periodicity conditions on the $S^1$ coordinate with a duality twist for the charged fields, that will give them masses according to the open string spectrum.
+
+\section{Orbifold gauge theory of the D9 brane stack}
+
+The starting point for this section is going to be the D9 effective action in a flat background,
+
+\begin{equation}
+    S = \int d^{10}\xi \text{Tr} \left( -\frac{1}{4} F^2 + \frac{i}{2} \overline{\lambda} D_{\hat{\mu}} \lambda\right).
+\end{equation}
+
+Next, we are going to compactify on a $T^4$. If we assume the volume of the torus is small $V_4 < 1$, then we can ignore all the KK momentum modes and pick only the zero mode, leading to the same theory as the one of a D6 described in Appendix \ref{ap:dimred}. For the sake of applying the knowledge developed in Chapter \ref{chap:spectrum}, we also want to have the $T^4$ components of the vector in the $(2,1) + (1,2)$, so we define the complex fields $N_1 = 1/\sqrt{2} \left( A_6 + i A_7\right)$ and $N_2 = 1/\sqrt{2} \left( A_8 + i A_9\right)$. In terms of these fields the worldvolume action is,
+
+\begin{equation}
+    S = S_{kin} + S_{pot} 
+\end{equation}
+
+where
+
+\begin{equation}
+    \begin{aligned}
+        S_{kin} = \int d^6\xi \text{Tr} \left(-\frac14 F_{\mu\nu}F^{\mu\nu}+2D_\mu N_iD^\mu \overline{N}^i+ \phi_{+}^{\dagger\alpha}D_{\mu}\gamma_{\mu}\phi_{+}^{\alpha}+\phi_{-}^{{\dagger\dot{\alpha}}}D_{\mu}\overline{\gamma}_{\mu}\phi_{-}^{{\dot{\alpha}}}\right) \\
+        S_{pot} = i\int d^{6}\xi \left([N_i,N_j][\overline{N}^i,\overline{N}^j] +  [N_i, \overline{N}_j][\overline{N}^i, N^j]+\phi_+^{\dagger\alpha}\sigma_{\alpha\beta}^i\gamma_5[A_i,\phi_-^\beta]+\phi_-^{\dagger\alpha}\overline{\sigma}_{\alpha\beta}^i[A_i,\phi_+^\beta]\right)
+    \end{aligned}
+\end{equation}
+
+Now, in order to give masses to these fields, we resort to the Scherk-Schwarz reduction \cite{SCHERK197960}. Depending on the $SO(4)$ representation the fields belong to, different monodromies (in this case just phases) will be acceptable. The idea is that when compactifying by a $S^1$, fields can be expanded in Fourier modes as,
+
+\begin{equation}
+    f(x, z) = e^{iMz} \sum f_n(x) e^{2\pi i n z / R},
+\end{equation}
+
+which is just a generalized Fourier expansion. Now, we can see that the field is not periodic, $f(x,z+2\pi) = e^{iM}f(x,z)$, so an expansion of this type is only admisible if the transformation $f \rightarrow e^{iM} f$ is a global symmetry.
+
+In our case, it's clear that after $T^4$ compatifications, some discrete subgrups of $SO(4)$ are actually global symmetries of our system, and the possible charges associated to different representations of this group have already been classified. Thus, we can use the SS reduction to spontaneously break supersymmetry in the gauge theory describing the branes. What results is the effective worldvolume theory when the string theory is defined in an orbifolded background.
+
+Now, in order to retrieve the spectrum desired, we need to consider the limit where $R \rightarrow 0$, effectively selecting the zeroth KK mode of the SS expansion\footnote{There is an interesting story here about higher momentum modes. It turns out that in certain orbifolds, for specific values of the $S^1$ radius $R$, some momentum modes remain massless since the orbifold charge and the KK momentum cancel out. Only in those specific cases, supersymmetry is restored.}. Besides that, remember that the action descends from a theory with an $SO(1,9)$ global symmetry, thus $SO(4)\subset SO(1,9)$ will also be a global symmetry, thus any potential term will remain unchanged.
+
+The proposed expansions for the charged fields are,
+
+\begin{equation}
+    \begin{aligned}
+        N_1(x, z) = e^{i(m_1 + m_3)z} N_1(x) \\
+        N_2(x, z) = e^{i(m_1 - m_3)z} N_2(x) \\
+        \phi_+^\alpha (x, z) = e^{im_1 z} \phi_+^\alpha(x)\\
+        \phi_-^\alpha (x, z) = e^{im_2 z} \phi_-^\alpha(x)
+    \end{aligned}
+\end{equation}
+
+Now, the only change happens in the action, where the derivatives $\partial_z$ now turn into masses,
+
+\begin{equation}
+    \begin{aligned}
+        D_z N_1 D^z \overline{N}_1 = (m_1 + m_3)^2 |N_1|^2 + V_1\\
+        D_z N_2 D^z N_2 = (m_1 - m_3)^2 |N_2|^2 + V_2 \\
+        \phi_+^{\dagger \alpha} D_z \gamma_z \phi_+^\alpha = \phi_+^{\dagger \alpha} im_1 \gamma_z \phi_+^\alpha\\
+        \phi_-^{\dagger \alpha} D_z \gamma_z \phi_-^\alpha = \phi_-^{\dagger \alpha} im_3 \gamma_z \phi_-^\alpha
+    \end{aligned}
+\end{equation}
+
+as we can see, the fields acquire a mass corresponding to their charge under the orbifold action accordin to their $SO(4)$ represntation. Now, depending on the orbifold, the massless fields will correspond to those mentiones in (tables of chap3), and supersymmetry will be broken (partially or completely).

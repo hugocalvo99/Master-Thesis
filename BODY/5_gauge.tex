@@ -24,14 +24,14 @@ from which we read a $U(1)$ gauge theory in $p+1$ dimensions with $9-p$ scalars,
     g_{\mathrm{YM}}^2=\frac1{4\pi^2\alpha^{\prime2}\tau_p}=\frac g{\sqrt{\alpha^{\prime}}}(2\pi\sqrt{\alpha^{\prime}})^{p-2}.
 \end{equation}
 
-The supersymmetric extension of the DBI action is possible to rite but unnecessary, because to first order it is effectively the supersymmetryc completion of the previous action. The extension to multiple coincident Dp-branes is also straightforward as we just need to add $U(N)$ gauge fields instead of $U(1)$. Consider the case $p=9$, this is a D9-brane covering all the target space. To first order, the worldvolume theory is $D = 10$, $\mathcal{N} = 1$, $U(N)$ SYM,
+The supersymmetric extension of the DBI action is possible to write but unnecessary, because to first order it is effectively the supersymmetryc completion of the previous action. The extension to multiple coincident Dp-branes is also straightforward as we just need to consider $U(N)$ gauge fields instead of $U(1)$. Consider the case $p=9$, this is a D9-brane covering all the target space. To first order, the worldvolume theory is $D = 10$, $\mathcal{N} = 1$, $U(N)$ SYM,
 
 \begin{equation}
     \label{eq:5_10d_wv_action}
     S=\int d^{10}\xi\mathrm{~}\left(-\frac14\mathrm{Tr~}F_{\mu\nu}F^{\mu\nu}+\frac i2\mathrm{Tr~}\bar{\psi}\Gamma^\mu D_\mu\psi\right)
 \end{equation}
 
-Here we see that the field content is a $\mathbf{10}$ vector and a $\mathbf{16}_s$ MW spinor of $SO(1,9)$, in agreeance with the spectrum of Chapter \ref{chap:spectrum}. Note that the gauge field $A^\mu$ and the spinor $\psi$ are both in the adjoint representation of $U(N)$, so the field strength will be,
+Here we see that the field content is a $\mathbf{10}$ vector and a $\mathbf{16}_s$ MW spinor of $SO(1,9)$, in agreeance with the spectrum found on Chapter \ref{chap:spectrum}. Note that the gauge field $A^\mu$ and the spinor $\psi$ are both in the adjoint representation of $U(N)$, so the field strength will be,
 
 \begin{equation}
     F_{\mu\nu}=\partial_\mu A_\nu-\partial_\nu A_\mu-ig_{YM}[A_\mu,A_\nu],
@@ -48,6 +48,91 @@ Dimensional reduction of the action \ref{eq:5_10d_wv_action} can be performed by
 \begin{equation}
     S=\frac1{4g_{\mathrm{YM}}^2}\int d^{p+1}\xi\mathrm{~Tr~}(-F_{\alpha\beta}F^{\alpha\beta}-2(D_\alpha X^a)^2+[X^a,X^b]^2+\mathrm{fermions}).
 \end{equation}
+
+The fermion portion of the action deserves a careful treatment in order to justify it splits as discussed in Chapter \ref{chap:spectrum}. In order to do this, it is convenient to write the Gamma matrices in the chiral basis \cite{spinors_n_dim} and Wick rotate the time component to be in Euclidean signature,
+
+\begin{equation}
+    \label{eq:gamma_chiral}
+    \begin{aligned}
+        \Gamma_0 = \sigma_1 \otimes \sigma_1 \otimes \sigma_1 \otimes \sigma_1 \otimes \sigma_1\\
+        \Gamma_1 = \sigma_1 \otimes \sigma_1 \otimes \sigma_1 \otimes \sigma_1 \otimes \sigma_2\\
+        \Gamma_2 = \sigma_1 \otimes \sigma_1 \otimes \sigma_1 \otimes \sigma_1 \otimes \sigma_3\\
+        \Gamma_3 = \sigma_1 \otimes \sigma_1 \otimes \sigma_1 \otimes \sigma_2 \otimes \mathbb{1}\\
+        \Gamma_4 = \sigma_1 \otimes \sigma_1 \otimes \sigma_1 \otimes \sigma_3 \otimes \mathbb{1}\\
+        \Gamma_5 = \sigma_1 \otimes \sigma_1 \otimes \sigma_2 \otimes \mathbb{1} \otimes \mathbb{1}\\
+        \Gamma_6 = \sigma_1 \otimes \sigma_1 \otimes \sigma_3 \otimes \mathbb{1} \otimes \mathbb{1}\\
+        \Gamma_7 = \sigma_1 \otimes \sigma_2 \otimes \mathbb{1} \otimes \mathbb{1} \otimes \mathbb{1}\\
+        \Gamma_8 = \sigma_1 \otimes \sigma_3 \otimes \mathbb{1} \otimes \mathbb{1} \otimes \mathbb{1}\\
+        \Gamma_9 = \sigma_2 \otimes \mathbb{1} \otimes \mathbb{1} \otimes \mathbb{1} \otimes \mathbb{1}
+    \end{aligned}
+\end{equation}
+
+Now, for a specific example, let us consider a free 10D Dirac spinor following the action,
+
+\begin{equation}
+    S = \int d^{10} \xi \overline{\lambda} \partial_{\hat{\mu}} \Gamma^{\hat{\mu}} \lambda,
+\end{equation}
+
+with $\hat{\mu} = 0,...,9$. Now dimensionally reduce by effectively dropping the $\xi^8$ and $\xi^{10}$ dependenc of the spinor. We are left with,
+
+\begin{equation}
+    S = \int d^8 \xi \overline{\lambda} \partial_\mu \Gamma^\mu \lambda
+\end{equation}
+
+with $\mu = 0,...,8$. Now, if we take a close look at the first 8 Gamma matrices in the basis written in \ref{eq:gamma_chiral}, we can see that they contain the full 8D Clifford algebra as a subalgebra in the form,
+
+\begin{equation}
+    \label{eq:5_10D_to8D_gamma}
+    \Gamma_\mu = \sigma_1 \otimes \Gamma^8_\mu = 
+    \begin{pmatrix}
+        0 && \Gamma^8_\mu \\
+        \Gamma^8_\mu && 0 
+    \end{pmatrix}
+    ,
+\end{equation}
+
+where $\Gamma^8_\mu$ is the 8D Clifford algebra in Euclidean signature. Now, the 10D chirality matrix is defined as $\Gamma_c^{10} = (-i) \Gamma_0 \dots \Gamma_9$ and it is explicitly,
+
+\begin{equation}
+    \Gamma_c^{10} = \begin{pmatrix}
+        -1 && 0 \\
+        0 && 1
+    \end{pmatrix}
+    \otimes \mathbb{1}\otimes \mathbb{1}\otimes \mathbb{1}\otimes \mathbb{1}
+\end{equation}
+
+Thus, it is compatible with \ref{eq:5_10D_to8D_gamma}, in the sense that the 10D Dirac spinor splits into its $\mathbf{16}_s$ and $\mathbf{16}_c$ Weyl components, and each follow the 8D free Dirac equation. We can name the Weyl components $\lambda_+$ and $\lambda_-$, from which we read,
+
+\begin{equation}
+    S = \int d^8 \xi \left( \overline{\lambda}_-\partial_\mu \Gamma^8_\mu \lambda_- + \overline{\lambda}_+ \partial \Gamma^8_\mu \lambda_+ \right).
+\end{equation}
+
+These 8D Dirac spinors can once again be split into their Weyl components using $\Gamma^8_c = \Gamma^8_0 \dots \Gamma^8_8$. The result is analogous to the previous,
+
+\begin{equation}
+    \lambda_- = \begin{pmatrix}
+        \phi_- \\ \phi_+
+    \end{pmatrix}, \quad \lambda_+ = \begin{pmatrix}
+        \psi_- \\ \psi_+
+    \end{pmatrix}.
+\end{equation}
+
+What is left is to check their 2D chiralities coming from the 2D subalgebra, 
+
+\begin{equation}
+    \begin{aligned}
+        \Gamma^2_c = -i \Gamma_8 \Gamma_9 = \sigma_3 \otimes \sigma_3 \otimes \mathbb{1}\otimes \mathbb{1}\otimes \mathbb{1} = \\ \begin{pmatrix}
+            1 && && && \\
+              && -1 && && \\
+             && && -1 && \\
+             && && && 1
+        \end{pmatrix} \otimes \mathbb{1}\otimes \mathbb{1}\otimes \mathbb{1}
+    \end{aligned}
+\end{equation}
+
+From this we read that the 2D chiralities are $+,-,-,+$ respectively for $\phi_-, \phi_+, \psi_-,\psi_+$, confirming that their $SO(1,7)\times SO(2)$ representations are indeed $(\mathbf{8}_s,\mathbf{1}_c)+(\mathbf{8}_c,\mathbf{1}_s)+(\mathbf{8}_c,\mathbf{1}_c)+(\mathbf{8}_s,\mathbf{1}_s)$ in full agreance with Chapter \ref{chap:spectrum}.
+
+This procedure that was explicitly discussed for the case $SO(1,9) \rightarrow SO(1,7) \times SO(2)$ can be generalized for dimensional reductions of all kinds in a similar maner\footnote{For an in depth derivation of the dimensional reduction $SO(1,9) \rightarrow SO(1,7)\times SO(4)$, refer to Appendix \ref{ap:dimred}. All non-abelian terms are treated carefully and the example is less trivial, with more structure in the R-symmetry group.}. Notice how in this case, the 10D Dirac spinor split into 2 8D Dirac spinors. If we reduced instead to 6D we would have 4 Dirac spinors and they would carry an $SO(4)$ R-symmetry and the procedure would follow although being a bit more complicated from the need of explicitly writing the internal indices.
 
 The agreeance with the bosonic spectrum is easy to check, as the vector $A^\alpha$ is on the $(\mathbf{p}, \mathbf{1})$ and the scalars form the $(\mathbf{1}, \mathbf{9-p})$ just by looking at the indices $\alpha$ and $a$. The fermions are not as easy to check from the action, but they also follow the decomposition described in \ref{chap:spectrum}. Since we started with 16 supercharges, 16 supercharges remain irregardless of the vaulue of $p$. For example, in the case of a stack of D4-branes, the worldvolume theory would be maximal $\mathcal{N} = 4$ SYM in $D = 4$. If we were to study a stack of D1-branes, the action would be that of $\mathcal{N} = (8,8)$ SYM in $D = 2$. The fact is that since we started with maximally supersymmetric SYM, we always land in a theory with maximal supersymmetry.
 
@@ -98,7 +183,3 @@ We are now ready to write the action, we will go term by term,
 \end{equation}
 
 In this last action, the first term is just the kinetic term with covariant derivative $D_\alpha \chi = (\partial_\alpha + i A^{(1)}_\alpha - i A^{(5)}_\alpha) \chi$. The last 2 terms come from supersymmetry.
-
-
-\section{Coulomb and Higgs branch}
-
